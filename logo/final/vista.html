@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Luzia — final</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:#080809; color:#A8A8BC; font-family:-apple-system,'Helvetica Neue',sans-serif; padding:40px 16px; font-size:.8rem; }
+  .row { display:flex; gap:20px; flex-wrap:wrap; max-width:1100px; margin-bottom:20px; }
+  .box { border-radius:16px; padding:36px; display:flex; flex-direction:column; gap:22px; align-items:flex-start; flex:1 1 320px; }
+  .oscuro { background:#101013; border:1px solid rgba(255,255,255,.08); }
+  .claro { background:#FFFFFF; color:#555; }
+  img { display:block; max-width:100%; }
+</style>
+</head>
+<body>
+<div class="row">
+  <div class="box oscuro">
+    <img src="luzia-logo-oscuro.svg" style="height:96px">
+    <img src="luzia-logo-oscuro.svg" style="height:32px">
+    <span>Para fondo oscuro (landing)</span>
+  </div>
+  <div class="box claro">
+    <img src="luzia-logo-claro.svg" style="height:96px">
+    <img src="luzia-logo-claro.svg" style="height:32px">
+    <span>Para fondo claro (documentos)</span>
+  </div>
+</div>
+<div class="row">
+  <div class="box oscuro" style="flex-direction:row; align-items:flex-end;">
+    <img src="luzia-simbolo.svg" style="height:160px">
+    <img src="luzia-simbolo.svg" style="height:64px">
+    <img src="luzia-simbolo.svg" style="height:32px">
+    <img src="luzia-simbolo.svg" style="height:16px">
+    <span>Símbolo solo</span>
+  </div>
+</div>
+</body>
+</html>
