@@ -607,6 +607,10 @@
     const LINKEDIN           = "#";          // PENDIENTE: pega aquí tu URL de LinkedIn
     const AÑO_COPYRIGHT      = "2026";
 
+    // Mostrar u ocultar — cambia a true para que vuelvan a aparecer
+    const MOSTRAR_WHATSAPP   = false; // Botones de WhatsApp (hero, CTA final y botón flotante)
+    const MOSTRAR_REDES      = false; // Links a Instagram y LinkedIn del footer
+
     // Colores — puedes cambiarlos por cualquier HEX
     const COLOR_ACCENT       = "#4169E1"; // Color principal (azul rey)
     const COLOR_ACCENT_LT    = "#7A96EA"; // Versión clara del acento
@@ -672,6 +676,10 @@
       document.getElementById('link-linkedin').href  = LINKEDIN;
       document.getElementById('link-email').href     = `mailto:${EMAIL_CONTACTO}`;
       document.getElementById('link-email').textContent = 'Contacto';
+
+      // — MOSTRAR / OCULTAR —
+      if (!MOSTRAR_WHATSAPP) ['btn-wa-hero', 'btn-wa-cta', 'btn-wa-float'].forEach(id => document.getElementById(id).style.display = 'none');
+      if (!MOSTRAR_REDES)    ['link-instagram', 'link-linkedin'].forEach(id => document.getElementById(id).style.display = 'none');
 
       // — COPYRIGHT —
       const copy = document.getElementById('footer-copy');
