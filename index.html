@@ -321,6 +321,86 @@
     .d1{transition-delay:.08s;} .d2{transition-delay:.16s;} .d3{transition-delay:.24s;}
     .d4{transition-delay:.32s;} .d5{transition-delay:.40s;} .d6{transition-delay:.48s;}
 
+    /* ═══ ILUSTRACIONES ═══ */
+    /* 1 · Chat de ejemplo (en lugar de los anillos de Sobre) */
+    .orbital.chat-demo { aspect-ratio: auto; padding: 36px 22px 22px; display: flex; flex-direction: column; align-items: center; gap: 26px; }
+    .chat-demo .orbital-chip { position: relative; bottom: auto; left: auto; right: auto; align-self: stretch; }
+    .phone { position: relative; z-index: 2; width: min(300px, 100%); background: #0B0B0D; border: 1px solid var(--border-md); border-radius: 30px; padding: 9px; box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 60px rgba(var(--accent-rgb),.14); }
+    .phone-screen { border-radius: 22px; overflow: hidden; background: #0F1013; }
+    .phone-bar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #15161A; border-bottom: 1px solid var(--border); }
+    .phone-avatar { width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(135deg, var(--accent), var(--accent-dk)); display: flex; align-items: center; justify-content: center; }
+    .phone-avatar svg { width: 15px; height: 15px; fill: #fff; }
+    .phone-name { font-size: .84rem; font-weight: 500; color: var(--text); line-height: 1.2; }
+    .phone-status { font-size: .72rem; color: #6FD39A; line-height: 1.3; }
+    .chat { height: 330px; padding: 16px 12px; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; overflow: hidden; }
+    .msg { display: none; max-width: 82%; padding: 8px 11px 6px; border-radius: 14px; font-size: .8rem; line-height: 1.45; color: var(--text); }
+    .msg.on { display: block; animation: msgIn .35s var(--ease) both; }
+    @keyframes msgIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .msg time { display: block; text-align: right; font-size: .62rem; color: rgba(255,255,255,.45); margin-top: 2px; }
+    .msg-in  { align-self: flex-start; background: #1E2026; border-bottom-left-radius: 4px; }
+    .msg-out { align-self: flex-end; background: var(--accent-dk); border-bottom-right-radius: 4px; }
+    .msg-typing.on { display: flex; gap: 4px; padding: 11px 12px; }
+    .msg-typing i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.65); animation: typing 1s infinite; }
+    .msg-typing i:nth-child(2) { animation-delay: .15s; } .msg-typing i:nth-child(3) { animation-delay: .3s; }
+    @keyframes typing { 0%,60%,100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+    .msg-sys { align-self: center; max-width: none; background: rgba(var(--accent-rgb),.14); border: 1px solid rgba(var(--accent-rgb),.32); color: var(--accent-lt); font-size: .74rem; border-radius: 20px; padding: 6px 12px; }
+    .msg-sys.on { display: flex; align-items: center; gap: 6px; }
+    .msg-sys svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* 2 · Flujo animado (debajo de los servicios) */
+    .flow { margin-top: 28px; display: flex; align-items: flex-start; padding: 34px 40px 30px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; }
+    .flow-node { display: flex; flex-direction: column; align-items: center; gap: 12px; flex-shrink: 0; width: 110px; text-align: center; }
+    .flow-dot { width: 60px; height: 60px; border-radius: 50%; background: var(--bg2); border: 1px solid var(--border-md); display: flex; align-items: center; justify-content: center; }
+    .flow-dot svg { width: 22px; height: 22px; stroke: var(--accent-lt); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .flow-node span { font-size: .8rem; color: #C8C8D8; line-height: 1.35; }
+    .flow-node.ia .flow-dot { background: linear-gradient(135deg, var(--accent), var(--accent-dk)); border-color: transparent; box-shadow: 0 0 32px rgba(var(--accent-rgb),.4); }
+    .flow-node.ia .flow-dot svg { stroke: none; fill: #fff; }
+    .flow-link { flex: 1; height: 1px; margin-top: 30px; background: var(--border-md); position: relative; overflow: hidden; }
+    .flow-link::after { content: ''; position: absolute; top: 0; left: -40%; width: 40%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-lt), transparent); animation: flowGlide 3.6s linear infinite; }
+    .flow-link:nth-child(4)::after { animation-delay: 1.2s; }
+    .flow-link:nth-child(6)::after { animation-delay: 2.4s; }
+    @keyframes flowGlide { 0% { left: -40%; } 45%, 100% { left: 100%; } }
+    @keyframes flowGlideV { 0% { top: -40%; } 45%, 100% { top: 100%; } }
+
+    /* 3 · Antes y después (Por qué elegirnos) */
+    .ba { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .ba-col { border-radius: 14px; padding: 18px; border: 1px solid var(--border); background: var(--bg); }
+    .ba-col.despues { border-color: rgba(var(--accent-rgb),.35); background: rgba(var(--accent-rgb),.06); }
+    .ba-title { font-size: .72rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .ba-col.despues .ba-title { color: var(--accent-lt); }
+    .ba-item { display: flex; align-items: center; gap: 9px; font-size: .82rem; color: #9C9CAE; padding: 8px 0; border-top: 1px solid var(--border); line-height: 1.35; }
+    .ba-title + .ba-item { border-top: none; }
+    .ba-item svg { width: 15px; height: 15px; flex-shrink: 0; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .antes .ba-item svg { stroke: #6E6E80; }
+    .despues .ba-item { color: var(--text); }
+    .despues .ba-item svg { stroke: var(--accent-lt); }
+
+    /* 5 · Íconos de servicios (en lugar de los números) */
+    .svc-ico { width: 46px; height: 46px; border-radius: 12px; margin-bottom: 20px; background: rgba(var(--accent-rgb),.10); border: 1px solid rgba(var(--accent-rgb),.18); display: flex; align-items: center; justify-content: center; transition: background .3s, box-shadow .3s; }
+    .svc:hover .svc-ico { background: rgba(var(--accent-rgb),.2); box-shadow: 0 0 24px rgba(var(--accent-rgb),.25); }
+    .svc-ico svg { width: 21px; height: 21px; stroke: var(--accent-lt); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* 6 · Lista de pruebas en vivo (Cómo trabajamos) */
+    .tests { max-width: 620px; margin: 72px auto 0; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 26px 28px 18px; }
+    .tests-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .tests-title { font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #C0C0D0; }
+    .tests-count { font-family: var(--font-head); font-size: .95rem; font-weight: 700; color: var(--accent-lt); }
+    .tests-bar { height: 3px; border-radius: 3px; background: var(--border-md); overflow: hidden; margin-bottom: 8px; }
+    .tests-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-lt)); transition: width .5s var(--ease); }
+    .test { display: flex; align-items: center; gap: 14px; padding: 13px 0; border-top: 1px solid var(--border); }
+    .tests-bar + .test { border-top: none; }
+    .test-st { width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid var(--border-md); display: flex; align-items: center; justify-content: center; transition: all .3s var(--ease); }
+    .test-st svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0; transform: scale(.4); transition: all .3s var(--ease-spring); }
+    .test-txt { flex: 1; font-size: .9rem; color: #9C9CAE; transition: color .3s; }
+    .test-res { font-size: .74rem; color: var(--text-muted); opacity: 0; transition: opacity .3s; white-space: nowrap; }
+    .test.run .test-st { border-color: var(--accent-lt); border-top-color: transparent; animation: spin .8s linear infinite; }
+    .test.run .test-txt { color: var(--text); }
+    .test.run .test-res { opacity: 1; }
+    .test.ok .test-st { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 14px rgba(var(--accent-rgb),.45); }
+    .test.ok .test-st svg { opacity: 1; transform: none; }
+    .test.ok .test-txt { color: var(--text); }
+    .test.ok .test-res { opacity: 1; color: var(--accent-lt); }
+
     /* RESPONSIVE */
     @media (max-width: 960px) {
       .hero-content { grid-template-columns: 1fr; gap: 44px; }
@@ -336,6 +416,10 @@
       section { padding: 80px 0; }
       .services-grid { grid-template-columns: 1fr; }
       .proceso-grid  { grid-template-columns: 1fr; }
+      .flow { flex-direction: column; align-items: center; padding: 28px 20px; }
+      .flow-link { flex: none; width: 1px; height: 30px; margin: 10px 0; }
+      .flow-link::after { left: 0; top: -40%; width: 1px; height: 40%; background: linear-gradient(180deg, transparent, var(--accent-lt), transparent); animation-name: flowGlideV; }
+      .ba { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -470,15 +554,24 @@
           </div>
         </div>
         <div class="sobre-right rr d2">
-          <div class="orbital">
+          <div class="orbital chat-demo">
             <div class="orbital-glow"></div>
-            <div class="orbital-inner">
-              <div class="orbit-ring"></div>
-              <div class="orbit-ring"></div>
-              <div class="orbit-ring"></div>
-              <div class="orbit-center">
-                <div class="orbit-center-num">IA</div>
-                <div class="orbit-center-label">que trabaja</div>
+            <!-- conversación de ejemplo: se anima sola cuando entra en pantalla -->
+            <div class="phone" role="img" aria-label="Ejemplo de conversación: un cliente pide cita de noche y el agente de IA la agenda">
+              <div class="phone-screen">
+                <div class="phone-bar">
+                  <div class="phone-avatar"><svg viewBox="0 0 24 24"><path d="M12 3C12.85 9.4 14.6 11.15 21 12C14.6 12.85 12.85 14.6 12 21C11.15 14.6 9.4 12.85 3 12C9.4 11.15 11.15 9.4 12 3Z"/></svg></div>
+                  <div><div class="phone-name">Tu negocio</div><div class="phone-status">en línea</div></div>
+                </div>
+                <div class="chat" id="chat-demo">
+                  <div class="msg msg-in" data-espera="900">Hola, ¿tienen lugar mañana en la tarde?<time>10:42 p.m.</time></div>
+                  <div class="msg msg-out msg-typing" data-espera="1400"><i></i><i></i><i></i></div>
+                  <div class="msg msg-out" data-espera="2000">¡Hola! Sí, mañana tengo 4:00 y 5:30 p.m. ¿Cuál te acomoda?<time>10:42 p.m.</time></div>
+                  <div class="msg msg-in" data-espera="900">La de 5:30 porfa<time>10:43 p.m.</time></div>
+                  <div class="msg msg-out msg-typing" data-espera="1400"><i></i><i></i><i></i></div>
+                  <div class="msg msg-out" data-espera="1500">Listo, quedó tu cita mañana a las 5:30 p.m. Un día antes te mando recordatorio.<time>10:43 p.m.</time></div>
+                  <div class="msg msg-sys" data-espera="1000"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Cita agregada al calendario</div>
+                </div>
               </div>
             </div>
             <div class="orbital-chip">
@@ -506,12 +599,22 @@
         <p class="r d2">Automatización e inteligencia artificial aplicada directamente a los procesos que más te cuestan tiempo y dinero.</p>
       </div>
       <div class="services-grid r d2">
-        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-num">01</div><h3>Agentes de IA</h3><p>Agentes autónomos que toman decisiones, responden clientes y ejecutan tareas complejas sin supervisión humana constante.</p></div>
-        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-num">02</div><h3>Automatización de Procesos</h3><p>Sistemas profundos para las operaciones más ineficientes de cualquier departamento. Menos costes, menos tiempo desperdiciado.</p></div>
-        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-num">03</div><h3>Chatbots Inteligentes</h3><p>Chatbots con IA que atienden 24/7, califican leads, responden dudas y guían el proceso de compra con precisión.</p></div>
-        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-num">04</div><h3>Funnels de Venta</h3><p>Embudos automatizados que guían prospectos desde el primer contacto hasta la conversión con seguimiento inteligente.</p></div>
-        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-num">05</div><h3>Desarrollo de Estrategia</h3><p>Analizamos tu negocio para identificar los puntos de mejora con mayor impacto y diseñar la arquitectura ideal.</p></div>
-        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-num">06</div><h3>Integración de Sistemas</h3><p>Conectamos CRM, ERP, WhatsApp, email y calendarios en un ecosistema que funciona solo y sin fricciones.</p></div>
+        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 3C12.85 9.4 14.6 11.15 21 12C14.6 12.85 12.85 14.6 12 21C11.15 14.6 9.4 12.85 3 12C9.4 11.15 11.15 9.4 12 3Z"/></svg></div><h3>Agentes de IA</h3><p>Agentes autónomos que toman decisiones, responden clientes y ejecutan tareas complejas sin supervisión humana constante.</p></div>
+        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16M3 21v-5h5M3 12a9 9 0 0 1 15.5-6.3L21 8M21 3v5h-5"/></svg></div><h3>Automatización de Procesos</h3><p>Sistemas profundos para las operaciones más ineficientes de cualquier departamento. Menos costes, menos tiempo desperdiciado.</p></div>
+        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12zM8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></div><h3>Chatbots Inteligentes</h3><p>Chatbots con IA que atienden 24/7, califican leads, responden dudas y guían el proceso de compra con precisión.</p></div>
+        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8.5V19l-4 2v-8.5z"/></svg></div><h3>Funnels de Venta</h3><p>Embudos automatizados que guían prospectos desde el primer contacto hasta la conversión con seguimiento inteligente.</p></div>
+        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01"/></svg></div><h3>Desarrollo de Estrategia</h3><p>Analizamos tu negocio para identificar los puntos de mejora con mayor impacto y diseñar la arquitectura ideal.</p></div>
+        <div class="svc"><div class="svc-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg></div><div class="svc-ico"><svg viewBox="0 0 24 24"><path d="M8.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM20.5 5.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM14.5 18.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM8.5 5.5h7M7 7.8l4 8.4M17 7.8l-4 8.4"/></svg></div><h3>Integración de Sistemas</h3><p>Conectamos CRM, ERP, WhatsApp, email y calendarios en un ecosistema que funciona solo y sin fricciones.</p></div>
+      </div>
+      <!-- flujo de ejemplo: una luz recorre las conexiones -->
+      <div class="flow r d3" role="img" aria-label="Flujo automatizado: llega un mensaje, el agente de IA responde, agenda la cita y guarda los datos en tu CRM">
+        <div class="flow-node"><div class="flow-dot"><svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><span>Mensaje del cliente</span></div>
+        <div class="flow-link"></div>
+        <div class="flow-node ia"><div class="flow-dot"><svg viewBox="0 0 24 24"><path d="M12 3C12.85 9.4 14.6 11.15 21 12C14.6 12.85 12.85 14.6 12 21C11.15 14.6 9.4 12.85 3 12C9.4 11.15 11.15 9.4 12 3Z"/></svg></div><span>Agente IA responde</span></div>
+        <div class="flow-link"></div>
+        <div class="flow-node"><div class="flow-dot"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M8 3v4M16 3v4"/></svg></div><span>Cita en tu agenda</span></div>
+        <div class="flow-link"></div>
+        <div class="flow-node"><div class="flow-dot"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span>Datos en tu CRM</span></div>
       </div>
     </div>
   </section>
@@ -531,6 +634,16 @@
         <div class="paso r d2"><div class="paso-dot">03</div><h3>Implementación</h3><p>Construimos y configuramos todo. Tú revisas y apruebas en cada etapa.</p></div>
         <div class="paso r d3"><div class="paso-dot">04</div><h3>Soporte</h3><p>No desaparecemos. Monitoreamos, ajustamos y mejoramos continuamente.</p></div>
       </div>
+      <!-- pruebas de ejemplo: se palomean solas cuando entran en pantalla -->
+      <div class="tests r d2" id="tests-demo" role="img" aria-label="Ejemplo de pruebas antes de entregar: 5 situaciones reales, todas aprobadas">
+        <div class="tests-head"><span class="tests-title">Pruebas antes de entregar</span><span class="tests-count" id="tests-count">0/5</span></div>
+        <div class="tests-bar"><i id="tests-bar"></i></div>
+        <div class="test"><div class="test-st"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="test-txt">El cliente escribe a las 2 de la mañana</span><span class="test-res">probando…</span></div>
+        <div class="test"><div class="test-st"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="test-txt">Pide cita en un día que ya está lleno</span><span class="test-res">probando…</span></div>
+        <div class="test"><div class="test-st"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="test-txt">Pregunta un precio</span><span class="test-res">probando…</span></div>
+        <div class="test"><div class="test-st"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="test-txt">Cambia de opinión a media plática</span><span class="test-res">probando…</span></div>
+        <div class="test"><div class="test-st"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><span class="test-txt">Pide hablar con una persona</span><span class="test-res">probando…</span></div>
+      </div>
     </div>
   </section>
 
@@ -542,6 +655,20 @@
           <span class="section-label r">Por qué elegirnos</span>
           <h2 class="r d1">IA que trabaja.<br><span class="text-accent">Resultados</span><br>que se miden.</h2>
           <p class="r d2" style="margin-top:20px;">Sin tecnología de moda ni promesas vacías. Solo sistemas que funcionan y números que puedes verificar.</p>
+          <div class="ba r d3">
+            <div class="ba-col antes">
+              <div class="ba-title">Antes</div>
+              <div class="ba-item"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>Mensajes sin contestar de noche</div>
+              <div class="ba-item"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>Citas apuntadas en libreta</div>
+              <div class="ba-item"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>Datos copiados a mano</div>
+            </div>
+            <div class="ba-col despues">
+              <div class="ba-title">Con Luzia</div>
+              <div class="ba-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Respuesta al instante, 24/7</div>
+              <div class="ba-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Citas directo al calendario</div>
+              <div class="ba-item"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Clientes guardados solos</div>
+            </div>
+          </div>
         </div>
         <div class="dif-stack">
           <div class="dif rr"><div class="dif-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h3>Sin plazos forzosos</h3><p>Pausa o cancela cuando quieras. Trabajamos por resultados, no por contrato.</p></div></div>
@@ -610,6 +737,7 @@
     // Mostrar u ocultar — cambia a true para que vuelvan a aparecer
     const MOSTRAR_WHATSAPP   = false; // Botones de WhatsApp (hero, CTA final y botón flotante)
     const MOSTRAR_REDES      = false; // Links a Instagram y LinkedIn del footer
+    const MOSTRAR_CORREO     = false; // Correo de contacto del footer
 
     // Colores — puedes cambiarlos por cualquier HEX
     const COLOR_ACCENT       = "#4169E1"; // Color principal (azul rey)
@@ -675,11 +803,12 @@
       document.getElementById('link-instagram').href = INSTAGRAM;
       document.getElementById('link-linkedin').href  = LINKEDIN;
       document.getElementById('link-email').href     = `mailto:${EMAIL_CONTACTO}`;
-      document.getElementById('link-email').textContent = 'Contacto';
+      document.getElementById('link-email').textContent = EMAIL_CONTACTO; // el correo visible: si el visitante no tiene app de correo, lo puede copiar
 
       // — MOSTRAR / OCULTAR —
       if (!MOSTRAR_WHATSAPP) ['btn-wa-hero', 'btn-wa-cta', 'btn-wa-float'].forEach(id => document.getElementById(id).style.display = 'none');
       if (!MOSTRAR_REDES)    ['link-instagram', 'link-linkedin'].forEach(id => document.getElementById(id).style.display = 'none');
+      if (!MOSTRAR_CORREO)   document.getElementById('link-email').style.display = 'none';
 
       // — COPYRIGHT —
       const copy = document.getElementById('footer-copy');
@@ -709,6 +838,67 @@
     // — NAV STICKY —
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
+
+    // — CHAT DE EJEMPLO —
+    (function chatDemo() {
+      const chat = document.getElementById('chat-demo');
+      if (!chat) return;
+      const pasos = [...chat.children];
+      // sin animaciones: se muestra la conversación completa
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        pasos.filter(p => !p.classList.contains('msg-typing')).forEach(p => p.classList.add('on'));
+        return;
+      }
+      let i = 0;
+      function siguiente() {
+        if (i === pasos.length) {
+          setTimeout(() => { pasos.forEach(p => p.classList.remove('on')); i = 0; siguiente(); }, 4000);
+          return;
+        }
+        const previo = pasos[i - 1];
+        if (previo && previo.classList.contains('msg-typing')) previo.classList.remove('on');
+        const paso = pasos[i++];
+        paso.classList.add('on');
+        setTimeout(siguiente, +paso.dataset.espera || 1200);
+      }
+      // arranca cuando el chat entra en pantalla
+      new IntersectionObserver((es, o) => {
+        if (es[0].isIntersecting) { o.disconnect(); setTimeout(siguiente, 600); }
+      }, { threshold: .3 }).observe(chat);
+    })();
+
+    // — PRUEBAS DE EJEMPLO —
+    (function testsDemo() {
+      const caja = document.getElementById('tests-demo');
+      if (!caja) return;
+      const filas = [...caja.querySelectorAll('.test')];
+      const cuenta = document.getElementById('tests-count');
+      const barra  = document.getElementById('tests-bar');
+      function marcar(n) {
+        cuenta.textContent = `${n}/${filas.length}`;
+        barra.style.width = `${n / filas.length * 100}%`;
+      }
+      function pasa(f) { f.classList.remove('run'); f.classList.add('ok'); f.querySelector('.test-res').textContent = 'pasó'; }
+      // sin animaciones: todo aprobado de una vez
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { filas.forEach(pasa); marcar(filas.length); return; }
+      let i = 0;
+      function siguiente() {
+        if (i === filas.length) {
+          setTimeout(() => {
+            filas.forEach(f => { f.classList.remove('ok', 'run'); f.querySelector('.test-res').textContent = 'probando…'; });
+            i = 0; marcar(0); setTimeout(siguiente, 700);
+          }, 4000);
+          return;
+        }
+        const f = filas[i++];
+        f.classList.add('run');
+        setTimeout(() => { pasa(f); marcar(i); setTimeout(siguiente, 350); }, 1100);
+      }
+      // arranca cuando la lista entra en pantalla
+      new IntersectionObserver((es, o) => {
+        if (es[0].isIntersecting) { o.disconnect(); setTimeout(siguiente, 600); }
+      }, { threshold: .4 }).observe(caja);
+    })();
 
     // — REVEAL ON SCROLL —
     const obs = new IntersectionObserver((entries) => {
